@@ -4,3 +4,13 @@ homelab:
       frontend-url: http://localhost:8080
     security:
       open-endpoints: /logout, /actuator/info, /actuator/health, /actuator/loggers/**
+
+springdoc:
+  api-docs:
+    enabled: true
+  show-actuator: true
+  swagger-ui:
+    show-extensions: true
+    show-common-extensions: true
+    csrf:
+      enabled: true
