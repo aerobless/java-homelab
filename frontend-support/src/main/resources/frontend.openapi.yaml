@@ -1,0 +1,40 @@
+openapi: 3.0.3
+info:
+  title: Frontend REST API
+  description: Supporting endpoints for the frontend
+  version: 1.0.0
+paths:
+  /backend/api/v1/frontend/userinfo:
+    get:
+      summary: Provides information about the currently logged in user
+      tags:
+        - userinfo
+      operationId: getUserinfo
+      responses:
+        200:
+          description: Successful response containing a json object with user details
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserinfoResponse"
+        500:
+          $ref: '../../../../shared/src/main/resources/shared.openapi.yaml#/components/responses/500'
+
+components:
+  schemas:
+    UserinfoResponse:
+      type: object
+      required:
+        - username
+        - email
+        - firstName
+        - lastName
+      properties:
+        username:
+          type: string
+        email:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string

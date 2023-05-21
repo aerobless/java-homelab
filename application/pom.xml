@@ -14,6 +14,11 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>com.sixtymeters.homelab</groupId>
+            <artifactId>frontend-support</artifactId>
+            <scope>runtime</scope>
+        </dependency>
     </dependencies>
 
 </project>

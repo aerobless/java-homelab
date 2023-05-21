@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.sixtymeters.homelab</groupId>
+        <artifactId>java-homelab</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>frontend-support</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.swagger.core.v3</groupId>
+            <artifactId>swagger-annotations</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sixtymeters.homelab</groupId>
+            <artifactId>shared</artifactId>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.openapitools</groupId>
+                <artifactId>openapi-generator-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <skipIfSpecIsUnchanged>true</skipIfSpecIsUnchanged>
+                            <inputSpec>${project.basedir}/src/main/resources/frontend.openapi.yaml</inputSpec>
+                            <modelPackage>com.sixtymeters.homelab.frontend.generated.model</modelPackage>
+                            <apiPackage>com.sixtymeters.homelab.frontend.generated.api</apiPackage>
+                            <invokerPackage>com.sixtymeters.homelab.frontend.generated.invoker</invokerPackage>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
