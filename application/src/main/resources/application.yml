@@ -1,0 +1,6 @@
+homelab:
+  config:
+    routing:
+      frontend-url: http://localhost:8080
+    security:
+      open-endpoints: /logout, /actuator/info, /actuator/health, /actuator/loggers/**

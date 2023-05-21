@@ -18,7 +18,7 @@
         <module>application</module>
         <module>shared</module>
         <module>frontend-support</module>
-        <!--<module>config</module>-->
+        <module>config</module>
     </modules>
     <properties>
         <java.version>20</java.version>
@@ -94,6 +94,11 @@
             <dependency>
                 <groupId>com.sixtymeters.homelab</groupId>
                 <artifactId>frontend-support</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.sixtymeters.homelab</groupId>
+                <artifactId>config</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
@@ -321,7 +326,7 @@
                         </goals>
                         <configuration>
                             <excludes>
-                                <exclude>**/ch/kessler/**/generated/**/*.class</exclude>
+                                <exclude>**/com/sixtymeters/**/generated/**/*.class</exclude>
                             </excludes>
                         </configuration>
                     </execution>
@@ -329,7 +334,7 @@
                 <configuration>
                     <append>true</append>
                     <excludes>
-                        <exclude>**/ch/kessler/**/generated/**/*.class</exclude>
+                        <exclude>**/com/sixtymeters/**/generated/**/*.class</exclude>
                     </excludes>
                 </configuration>
             </plugin>

@@ -16,9 +16,66 @@
     <dependencies>
         <dependency>
             <groupId>com.sixtymeters.homelab</groupId>
+            <artifactId>config</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.sixtymeters.homelab</groupId>
             <artifactId>frontend-support</artifactId>
             <scope>runtime</scope>
         </dependency>
     </dependencies>
 
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>io.github.git-commit-id</groupId>
+                <artifactId>git-commit-id-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>com.coderplus.maven.plugins</groupId>
+                <artifactId>copy-rename-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-file</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                        <configuration>
+                            <sourceFile>src/main/resources/META-INF/additional-spring-configuration-metadata.json</sourceFile>
+                            <destinationFile>target/classes/META-INF/spring-configuration-metadata.json</destinationFile>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <executable>false</executable>
+                    <profiles>${spring.profiles}</profiles>
+                    <jvmArguments>
+                        -Xms256m
+                        -Xmx2g
+                    </jvmArguments>
+                    <excludes>
+                        <exclude>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </exclude>
+                    </excludes>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>build-info</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+        <finalName>mis-ng-app-${project.version}</finalName>
+    </build>
 </project>
