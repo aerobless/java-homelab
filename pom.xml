@@ -8,13 +8,25 @@
         <version>3.1.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.sixtymeters</groupId>
+    <groupId>com.sixtymeters.homelab</groupId>
     <artifactId>java-homelab</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
     <name>java-homelab</name>
     <description>java-homelab</description>
+    <modules>
+        <module>application</module>
+        <!--<module>config</module>-->
+    </modules>
     <properties>
         <java.version>20</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <argLine></argLine>
+        <spring-boot.version>3.1.0</spring-boot.version>
+        <openapi-generator-maven-plugin.version>6.5.0</openapi-generator-maven-plugin.version>
+        <swagger-annotations.version>2.2.8</swagger-annotations.version>
     </properties>
     <dependencies>
         <dependency>

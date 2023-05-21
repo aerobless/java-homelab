@@ -1,7 +1,7 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="JavaHomelabApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-    <module name="java-homelab" />
-    <option name="SPRING_BOOT_MAIN_CLASS" value="com.sixtymeters.javahomelab.JavaHomelabApplication" />
+    <module name="application" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.sixtymeters.homelab.JavaHomelabApplication" />
     <method v="2">
       <option name="Make" enabled="true" />
     </method>
