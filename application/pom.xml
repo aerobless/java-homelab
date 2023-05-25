@@ -76,6 +76,6 @@
                 </executions>
             </plugin>
         </plugins>
-        <finalName>mis-ng-app-${project.version}</finalName>
+        <finalName>java-homelab-${project.version}</finalName>
     </build>
 </project>
