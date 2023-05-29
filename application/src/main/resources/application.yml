@@ -1,4 +1,6 @@
 homelab:
+  chat:
+    bot-token: ${HOMELAB_CHAT_BOT_TOKEN}
   config:
     routing:
       frontend-url: http://localhost:8080

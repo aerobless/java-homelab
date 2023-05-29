@@ -9,5 +9,10 @@
       "name": "homelab.config.security.open-endpoints",
       "type": "java.lang.String",
       "description": "Description for homelab.config.security.open-endpoints."
+    },
+    {
+      "name": "homelab.chat.bot-token",
+      "type": "java.lang.String",
+      "description": "Token for the telegram bot to access its api."
     }
   ] }
