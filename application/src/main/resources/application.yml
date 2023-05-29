@@ -1,11 +1,14 @@
 homelab:
   chat:
     bot-token: ${HOMELAB_CHAT_BOT_TOKEN}
+    allowed-chat-ids: ${HOMELAB_CHAT_ALLOWED_CHAT_IDS}
   config:
     routing:
       frontend-url: http://localhost:8080
     security:
       open-endpoints: /logout, /actuator/info, /actuator/health, /actuator/loggers/**
+  openapi:
+    key: ${HOMELAB_OPENAPI_KEY}
 
 springdoc:
   api-docs:

@@ -1,5 +1,7 @@
 package com.sixtymeters.homelab.chat;
 
+import com.sixtymeters.homelab.openai.AiCompletionService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
@@ -9,19 +11,27 @@ import org.telegram.telegrambots.meta.TelegramBotsApi;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 
+import java.util.List;
+
 @Slf4j
 @Service
+@RequiredArgsConstructor
 public class ChatService {
 
     @Value("${homelab.chat.bot-token}")
     private String botToken;
+
+    @Value("${homelab.chat.allowed-chat-ids}")
+    private List<Long> allowedChatIds;
+
+    private final AiCompletionService completionService;
 
     @EventListener(ApplicationReadyEvent.class)
     public void setupBots() {
         log.info("Setting up Telegram bots");
         try {
             TelegramBotsApi botsApi = new TelegramBotsApi(DefaultBotSession.class);
-            botsApi.registerBot(new HelloWorldBot(botToken));
+            botsApi.registerBot(new AriyaaBot(botToken, completionService, allowedChatIds));
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }

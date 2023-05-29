@@ -14,5 +14,16 @@
       "name": "homelab.chat.bot-token",
       "type": "java.lang.String",
       "description": "Token for the telegram bot to access its api."
+    },
+    {
+      "name": "homelab.openapi.key",
+      "type": "java.lang.String",
+      "description": "Key for the OpenAPI ap. Can be found here https://platform.openai.com/account/api-keys."
+    },
+    {
+      "name": "homelab.chat.allowed-chat-ids",
+      "type": "java.lang.String",
+      "description": "Telegram chat ids that are allowed to use the bot."
     }
-  ] }
+  ]
+}

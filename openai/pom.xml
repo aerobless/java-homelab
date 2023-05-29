@@ -9,17 +9,12 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>chat</artifactId>
+    <artifactId>openai</artifactId>
 
     <dependencies>
         <dependency>
-            <groupId>org.telegram</groupId>
-            <artifactId>telegrambots-abilities</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.sixtymeters.homelab</groupId>
-            <artifactId>openai</artifactId>
+            <groupId>ai.knowly</groupId>
+            <artifactId>langtorch</artifactId>
         </dependency>
     </dependencies>
-
 </project>

@@ -20,6 +20,7 @@
         <module>frontend-support</module>
         <module>config</module>
         <module>chat</module>
+        <module>openai</module>
     </modules>
     <properties>
         <java.version>20</java.version>
@@ -43,6 +44,7 @@
         <springdoc-openapi-starter-webmvc-ui.version>2.1.0</springdoc-openapi-starter-webmvc-ui.version>
         <telegrambots-abilities.version>6.5.0</telegrambots-abilities.version>
         <spring-dotenv.version>4.0.0</spring-dotenv.version>
+        <langtorch.version>0.0.11</langtorch.version>
     </properties>
     <dependencies>
         <dependency>
@@ -109,6 +111,11 @@
                 <artifactId>chat</artifactId>
                 <version>${project.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.sixtymeters.homelab</groupId>
+                <artifactId>openai</artifactId>
+                <version>${project.version}</version>
+            </dependency>
 
             <!-- Library dependencies -->
             <dependency>
@@ -130,6 +137,11 @@
                 <groupId>me.paulschwarz</groupId>
                 <artifactId>spring-dotenv</artifactId>
                 <version>${spring-dotenv.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ai.knowly</groupId>
+                <artifactId>langtorch</artifactId>
+                <version>${langtorch.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
