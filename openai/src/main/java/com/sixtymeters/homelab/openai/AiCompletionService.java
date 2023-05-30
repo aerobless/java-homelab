@@ -5,9 +5,10 @@ import ai.knowly.langtorch.processor.module.openai.chat.OpenAIChatProcessor;
 import ai.knowly.langtorch.store.memory.conversation.ConversationMemory;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.context.event.ApplicationReadyEvent;
-import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
+
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 @Slf4j
 @Service
@@ -16,17 +17,17 @@ public class AiCompletionService {
     @Value("${homelab.openapi.key}")
     private String openAiKey;
 
-    SimpleChatCapability chatBot;
+    private final Map<Long, SimpleChatCapability> chatBotSessions = new ConcurrentHashMap<>();
 
-    @EventListener(ApplicationReadyEvent.class)
-    public void setupAi(){
-        log.info("Setting up AI");
+    public SimpleChatCapability setupNewSession(final Long chatId){
+        log.info("Setting up new AI session for chatId %d".formatted(chatId));
         final var openAIChatProcessor = OpenAIChatProcessor.create(openAiKey);
         final var conversationMemory = ConversationMemory.builder().build();
-        chatBot = SimpleChatCapability.create(openAIChatProcessor).withMemory(conversationMemory).withVerboseMode();
+        return SimpleChatCapability.create(openAIChatProcessor).withMemory(conversationMemory).withVerboseMode();
     }
 
-    public String generateResponse(final String input) {
+    public String generateResponse(final String input, final Long chatId) {
+        final var chatBot = chatBotSessions.computeIfAbsent(chatId, this::setupNewSession);
         return chatBot.run(input);
     }
 

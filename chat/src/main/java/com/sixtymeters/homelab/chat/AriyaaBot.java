@@ -45,7 +45,7 @@ public class AriyaaBot extends AbilityBot {
 
             final var response = new SendMessage();
             response.setChatId(update.getMessage().getChatId().toString());
-            response.setText(completionService.generateResponse(update.getMessage().getText()));
+            response.setText(completionService.generateResponse(update.getMessage().getText(), chatId));
 
             log.info("%s (%s %s): %s".formatted(username, firstName, lastName, message));
             log.info("Ariyaa: %s".formatted(response.getText()));
