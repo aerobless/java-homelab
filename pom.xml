@@ -44,7 +44,7 @@
         <springdoc-openapi-starter-webmvc-ui.version>2.1.0</springdoc-openapi-starter-webmvc-ui.version>
         <telegrambots-abilities.version>6.5.0</telegrambots-abilities.version>
         <spring-dotenv.version>4.0.0</spring-dotenv.version>
-        <langtorch.version>0.0.11</langtorch.version>
+        <langtorch.version>0.0.12</langtorch.version>
     </properties>
     <dependencies>
         <dependency>

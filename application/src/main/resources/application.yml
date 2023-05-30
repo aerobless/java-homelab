@@ -2,6 +2,7 @@ homelab:
   chat:
     bot-token: ${HOMELAB_CHAT_BOT_TOKEN}
     allowed-chat-ids: ${HOMELAB_CHAT_ALLOWED_CHAT_IDS}
+    creator-chat-id: ${HOMELAB_CHAT_CREATOR_CHAT_ID}
   config:
     routing:
       frontend-url: http://localhost:8080

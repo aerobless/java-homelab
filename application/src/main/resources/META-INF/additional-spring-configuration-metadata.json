@@ -24,6 +24,11 @@
       "name": "homelab.chat.allowed-chat-ids",
       "type": "java.lang.String",
       "description": "Telegram chat ids that are allowed to use the bot."
+    },
+    {
+      "name": "homelab.chat.creator-chat-id",
+      "type": "java.lang.String",
+      "description": "Telegram chat id of the creator of the bot. Can be used to run restricted commands."
     }
   ]
 }

@@ -24,15 +24,18 @@ public class ChatService {
     @Value("${homelab.chat.allowed-chat-ids}")
     private List<Long> allowedChatIds;
 
+    @Value("${homelab.chat.creator-chat-id}")
+    private Long creatorChatId;
+
     private final AiCompletionService completionService;
 
     @EventListener(ApplicationReadyEvent.class)
     public void setupBots() {
         log.info("Setting up Telegram bots");
         try {
-            TelegramBotsApi botsApi = new TelegramBotsApi(DefaultBotSession.class);
-            botsApi.registerBot(new AriyaaBot(botToken, completionService, allowedChatIds));
-        } catch (TelegramApiException e) {
+            final var botsApi = new TelegramBotsApi(DefaultBotSession.class);
+            botsApi.registerBot(new AriyaaBot(botToken, completionService, allowedChatIds, creatorChatId));
+        } catch (final TelegramApiException e) {
             e.printStackTrace();
         }
     }
