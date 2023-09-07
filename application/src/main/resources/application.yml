@@ -5,7 +5,7 @@ homelab:
     creator-chat-id: ${HOMELAB_CHAT_CREATOR_CHAT_ID}
   config:
     routing:
-      frontend-url: http://localhost:8080
+      frontend-url: http://localhost:8080/swagger-ui.html
     security:
       open-endpoints: /logout, /actuator/info, /actuator/health, /actuator/loggers/**
   openapi:

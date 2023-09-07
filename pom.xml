@@ -18,6 +18,7 @@
         <module>application</module>
         <module>shared</module>
         <module>frontend-support</module>
+        <module>hexagonal-user-information-store</module>
         <module>config</module>
         <module>chat</module>
         <module>openai</module>
@@ -109,6 +110,11 @@
             <dependency>
                 <groupId>com.sixtymeters.homelab</groupId>
                 <artifactId>chat</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.sixtymeters.homelab</groupId>
+                <artifactId>hexagonal-user-information-store</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>

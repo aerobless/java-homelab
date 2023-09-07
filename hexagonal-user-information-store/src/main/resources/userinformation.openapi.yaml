@@ -1,0 +1,36 @@
+openapi: 3.0.3
+info:
+  title: UserInformation REST API
+  description: Supporting endpoints for the frontend
+  version: 1.0.0
+paths:
+  /backend/api/v1/userinformation:
+    post:
+      summary: Add user information
+      tags:
+        - userInformation
+      operationId: postUserInformation
+      responses:
+        200:
+          description: Successful response containing a json object with user details
+        500:
+          $ref: '../../../../shared/src/main/resources/shared.openapi.yaml#/components/responses/500'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserInformationRecordRequest"
+
+components:
+  schemas:
+    UserInformationRecordRequest:
+      type: object
+      required:
+        - key
+        - value
+      properties:
+        key:
+          type: string
+        value:
+          type: string

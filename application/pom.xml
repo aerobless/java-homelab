@@ -34,6 +34,11 @@
             <artifactId>chat</artifactId>
             <scope>runtime</scope>
         </dependency>
+        <dependency>
+            <groupId>com.sixtymeters.homelab</groupId>
+            <artifactId>hexagonal-user-information-store</artifactId>
+            <scope>runtime</scope>
+        </dependency>
     </dependencies>
 
 
